@@ -5,6 +5,7 @@ import axios from 'axios';
 import * as qs from 'querystring';
 import { BankCsasAccount, BankCsasApiBaseUrl, BankCsasTransaction, BankCsasBalance } from './csas.interface';
 import { ConfigService } from '../../config/config.service';
+import { ConfigKeys } from '../../config/config.interface';
 import { IBankService, BankTransaction, BankAccount, BankBalance } from '../bank.interface';
 
 @Injectable()
@@ -45,7 +46,7 @@ export class CsasService implements IBankService {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'web-api-key': this.config.get('BANK_CSAS_WEB_API_KEY'),
+        'web-api-key': this.config.get(ConfigKeys.BANK_CSAS_WEB_API_KEY),
       },
     });
 
@@ -66,7 +67,7 @@ export class CsasService implements IBankService {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'web-api-key': this.config.get('BANK_CSAS_WEB_API_KEY'),
+        'web-api-key': this.config.get(ConfigKeys.BANK_CSAS_WEB_API_KEY),
       },
     });
 
@@ -89,7 +90,7 @@ export class CsasService implements IBankService {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
-        'web-api-key': this.config.get('BANK_CSAS_WEB_API_KEY'),
+        'web-api-key': this.config.get(ConfigKeys.BANK_CSAS_WEB_API_KEY),
       },
     });
 
@@ -112,9 +113,9 @@ export class CsasService implements IBankService {
 
     const idpBody = {
       grant_type: 'refresh_token',
-      refresh_token: this.config.get('BANK_CSAS_REFRESH_TOKEN'),
-      client_id: this.config.get('BANK_CSAS_CLIENT_ID'),
-      client_secret: this.config.get('BANK_CSAS_CLIENT_SECRET'),
+      refresh_token: this.config.get(ConfigKeys.BANK_CSAS_REFRESH_TOKEN),
+      client_id: this.config.get(ConfigKeys.BANK_CSAS_CLIENT_ID),
+      client_secret: this.config.get(ConfigKeys.BANK_CSAS_CLIENT_SECRET),
       redirect_uri: 'http://localhost:3000',
     };
 

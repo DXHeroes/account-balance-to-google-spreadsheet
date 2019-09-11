@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as fs from 'fs';
+import { ConfigKeys } from './config.interface';
 
 export class ConfigService {
   private readonly envConfig: { [key: string]: string };
@@ -8,7 +9,7 @@ export class ConfigService {
     this.envConfig = dotenv.parse(fs.readFileSync(filePath));
   }
 
-  get(key: string): string {
+  get(key: ConfigKeys): string {
     return this.envConfig[key];
   }
 }
