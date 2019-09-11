@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import * as GoogleSpreadsheet from 'google-spreadsheet';
 import { AccountSnapshot } from './write-to-spreadsheet.interface';
 import { ConfigService } from '../../config/config.service';
+import { ConfigKeys } from '../../config/config.interface';
 
 @Injectable()
 export class WriteToSpreadsheetService {
@@ -14,8 +15,8 @@ export class WriteToSpreadsheetService {
 
   constructor(config: ConfigService) {
     // Please take note that this check is case sensitive!
-    this.googleAuth = JSON.parse(Buffer.from(config.get('GOOGLE_AUTH'), 'base64').toString('utf-8'));
-    this.googleSheetId = config.get('GOOGLE_SHEET_ID');
+    this.googleAuth = JSON.parse(Buffer.from(config.get(ConfigKeys.GOOGLE_AUTH), 'base64').toString('utf-8'));
+    this.googleSheetId = config.get(ConfigKeys.GOOGLE_SHEET_ID);
     this.googleAuthed = false;
     this.sheet = new GoogleSpreadsheet(this.googleSheetId);
   }
