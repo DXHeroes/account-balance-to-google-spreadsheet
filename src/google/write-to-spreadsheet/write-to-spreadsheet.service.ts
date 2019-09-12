@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase, prefer-arrow-callback */
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import * as GoogleSpreadsheet from 'google-spreadsheet';
 import { AccountSnapshot } from './write-to-spreadsheet.interface';
 import { ConfigService } from '../../config/config.service';
@@ -22,6 +22,8 @@ export class WriteToSpreadsheetService {
   }
 
   writeBalancesToGoogleSheet = async (snapshots: AccountSnapshot[], rates: { [currency: string]: number }) => {
+    Logger.debug('#writeBalancesToGoogleSheet', this.constructor.name);
+
     await this.authWithGoogle();
     await this.getSheetInfo(this.sheet);
 
@@ -37,7 +39,8 @@ export class WriteToSpreadsheetService {
 
     await Promise.all(
       snapshots.map((s) => {
-        console.log(`Writing account ${s.accountId}/${s.bankId} (${s.currency})`);
+        Logger.log(`Writing account ${s.accountId}/${s.bankId} (${s.currency})`, this.constructor.name);
+
         const writePromise = this.writeRow(2, {
           Date: s.date.toISOString(),
           Account: `${s.accountId}/${s.bankId} `,
@@ -45,13 +48,17 @@ export class WriteToSpreadsheetService {
           Currency: s.currency,
           CZK_Balance: Math.round(s.closingBalance / rates[s.currency]),
         });
-        console.log('✅ Done!');
+
+        Logger.log('✅ Done!', this.constructor.name);
+
         return writePromise;
       }),
     );
   };
 
   authWithGoogle = async () => {
+    Logger.debug('#authWithGoogle', this.constructor.name);
+
     if (this.googleAuthed) {
       return;
     }
@@ -68,21 +75,25 @@ export class WriteToSpreadsheetService {
   };
 
   getSheetInfo = async (sheet) => {
+    Logger.debug('#getSheetInfo', this.constructor.name);
+
     return new Promise((res, rej) => {
-      sheet.getInfo(function(err, info) {
+      sheet.getInfo((err, info) => {
         if (err) {
           rej(err);
           return;
         }
-        console.log('Loaded doc: ' + info.title + ' by ' + info.author.email);
+        Logger.log(`Loaded doc: ${info.title} by ${info.author.email}`, this.constructor.name);
         sheet = info.worksheets[0];
-        console.log('sheet 1: ' + sheet.title + ' ' + sheet.rowCount + 'x' + sheet.colCount);
+        Logger.log(`Sheet 1: ${sheet.title} ${sheet.rowCount}x${sheet.colCount}`, this.constructor.name);
         res(info);
       });
     });
   };
 
   writeRow = async (worksheetId: number, newRow: { [key: string]: any }) => {
+    Logger.debug('#writeRow', this.constructor.name);
+
     return new Promise((res, rej) => {
       this.sheet.addRow(worksheetId, newRow, (err, row) => {
         if (err) {

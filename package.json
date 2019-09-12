@@ -1,8 +1,8 @@
 {
-  "name": "nest-base",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "account-balance-to-google-spreadsheet",
+  "version": "1.0.0",
+  "description": "Modular app to fetch transaction history and account balance from the bank API and write to Google Spreadsheet.",
+  "author": "Prokop Simek (prokop@dxheroes.io)",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
