@@ -1,7 +1,5 @@
 # Account Balance to Google Spreadsheet
 
-## Description
-
 Modular app to fetch transaction history and account balance from the bank API and write to Google Spreadsheet.
 
 Written in [Nest](https://github.com/nestjs/nest) framework using TypeScript.
