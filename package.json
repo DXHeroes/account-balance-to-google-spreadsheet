@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Modular app to fetch transaction history and account balance from the bank API and write to Google Spreadsheet.",
   "author": "Prokop Simek (prokop@dxheroes.io)",
-  "license": "MIT",
+  "license": "wtfpl",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",

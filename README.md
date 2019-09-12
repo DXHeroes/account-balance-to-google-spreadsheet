@@ -35,24 +35,24 @@ $ npm install
   - Click to "Create" and download the JSON file
 - Encode the content of the file with Base64 and save it to the `.env.development` as `GOOGLE_AUTH` key
 
-```yaml
-GOOGLE_AUTH="YmFzZTY0IGVuY29kZWQgSlNPTiBmaWxlIGFzIGEgc3RyaW5nIGhlcmU="
-```
+  ```yaml
+  GOOGLE_AUTH="YmFzZTY0IGVuY29kZWQgSlNPTiBmaWxlIGFzIGEgc3RyaW5nIGhlcmU="
+  ```
 
 - Go to https://drive.google.com and create new empty Spreadsheet
 - Share the spreadsheet to the email in the Google Credentials JSON file (as `client_email`) with edit permissions.
 - Copy the ID of the Spreadsheet from the URL
-e.g.
-```
-https://docs.google.com/spreadsheets/d/5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c/edit
+  e.g.
+  ```
+  https://docs.google.com/spreadsheets/d/5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c/edit
 
-# id == "5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c" (YOUR ID DIFFERS!)
-```
+  # id == "5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c" (YOUR ID DIFFERS!)
+  ```
 - Save the ID to the `.env.development` file as `GOOGLE_SHEET_ID` key
 
-```yaml
-GOOGLE_SHEET_ID=5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c
-```
+  ```yaml
+  GOOGLE_SHEET_ID=5BxICDTRQpIsPK_tcJJm4Ni9gjtPsDHErXE_m-dDQM4c
+  ```
 
 ### 2. Banks
 - [Guide for Česká Spořitelna a.s.](/docs/ceska_sporitelna.md)
@@ -87,3 +87,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Lincense
+
+[WTFPL-2.0](https://www.tldrlegal.com/l/wtfpl)
