@@ -1,10 +1,14 @@
 {
   "extends": [
-    "config:base"
+    "config:js-app",
+    ":rebaseStalePrs",
+    "group:allNonMajor",
+    "schedule:earlyMondays"
   ],
-  "rangeStrategy": "replace",
+  "automergeType": "branch",
   "automerge": true,
   "major": {
-    "automerge": false
+    "automerge": false,
+    "ignoreDeps": ["@types/node"]
   }
 }
