@@ -6,9 +6,7 @@ Written in [Nest](https://github.com/nestjs/nest) framework using TypeScript.
 
 **Currently supported banks:**
 
-<div style="text-align: center">
-  <img src="https://assets.erstegroup.com/content/sites/cz/csas/www_csas_cz/cs/zpravy-z-banky/2017/10/18/ceska-sporitelna-zacina-pouzivat-nove-logo/jcr:content/mainParsys/textwithimage_1762737388/image.fitIn.w360.jpg/15081581954211508157086169.jpg" alt="Česká Spořitelna a.s." height="100"/>
-</div>
+- Česká Spořitelna a.s. (https://csas.cz)
 
 
 ## Installation
