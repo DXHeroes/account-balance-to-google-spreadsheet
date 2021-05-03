@@ -48,7 +48,7 @@
     "prettier": "1.18.2",
     "supertest": "4.0.2",
     "ts-jest": "24.1.0",
-    "ts-node": "8.3.0",
+    "ts-node": "9.1.1",
     "tsc-watch": "4.1.0",
     "tsconfig-paths": "3.9.0",
     "typescript": "3.6.3"
