@@ -24,7 +24,7 @@
     "@nestjs/core": "6.11.11",
     "@nestjs/platform-express": "6.11.11",
     "axios": "0.24.0",
-    "dotenv": "8.6.0",
+    "dotenv": "10.0.0",
     "google-spreadsheet": "2.0.9",
     "nest-schedule": "0.6.4",
     "querystring": "0.2.1",
