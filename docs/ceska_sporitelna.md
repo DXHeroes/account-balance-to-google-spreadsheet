@@ -2,7 +2,7 @@
 
 - Go to https://developers.erstegroup.com
 - [Register and create a new app](https://developers.erstegroup.com/docs/tutorial/general-getting-started)
-- Add a [Corporate Accounts API](https://developers.erstegroup.com/docs/apis/bank.csas/bank.csas.v1%2Fcorporate)
+- Add a [Accounts API v2](https://developers.erstegroup.com/docs/apis/bank.csas/bank.csas.v2%2Faccounts)
 - Set the scope to Required
 - Enable OAuth2, set the redirect URI to `http://localhost:3000` and set the grant type to "Implicit + Code"
 - Generate credentials for Sandbox app
