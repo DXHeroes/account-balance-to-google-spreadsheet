@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@nestjs/common": "6.11.11",
-    "@nestjs/core": "6.11.11",
+    "@nestjs/core": "9.0.5",
     "@nestjs/platform-express": "6.11.11",
     "axios": "0.28.1",
     "dotenv": "8.6.0",
